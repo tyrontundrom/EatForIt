@@ -1,13 +1,15 @@
 package com.tyrontundrom.eatforit.model;
 
+import com.tyrontundrom.eatforit.validator.PeriodTimeConstraint;
 import jakarta.persistence.Embeddable;
 
 import javax.annotation.Nullable;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 
+@PeriodTimeConstraint
 @Embeddable
-class PeriodTime {
+public class PeriodTime {
 
     @Nullable
     private LocalTime begin;
