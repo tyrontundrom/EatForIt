@@ -1,4 +1,4 @@
-package com.tyrontundrom.eatforit.model;
+package com.tyrontundrom.eatforit.dto;
 
 import com.tyrontundrom.eatforit.model.enums.EvidenceType;
 import jakarta.persistence.*;
@@ -9,12 +9,7 @@ import jakarta.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.Instant;
 
-@Entity
-class OperationEvidence {
-
-    @Id
-    @GeneratedValue
-    private Long id;
+class OperationEvidenceDto {
 
     @NotNull
     private Instant date;
@@ -24,22 +19,12 @@ class OperationEvidence {
     private EvidenceType evidenceType;
 
     @NotNull
-    @Column(scale = 2, precision = 12)
     @Digits(integer = 10, fraction = 2)
     @Min(0)
     private BigDecimal amount;
 
     @NotNull
-    @ManyToOne
-    private User user;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
+    private UserDto userDto;
 
     public Instant getDate() {
         return date;
@@ -65,11 +50,11 @@ class OperationEvidence {
         this.amount = amount;
     }
 
-    public User getUser() {
-        return user;
+    public UserDto getUserDto() {
+        return userDto;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUserDto(UserDto userDto) {
+        this.userDto = userDto;
     }
 }
