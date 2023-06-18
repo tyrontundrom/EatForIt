@@ -6,12 +6,18 @@ import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 import javax.annotation.Nullable;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 class DiscountCode {
 
@@ -44,61 +50,4 @@ class DiscountCode {
     @ManyToMany
     private List<Restaurant> restaurants;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
-    }
-
-    public BigDecimal getDiscount() {
-        return discount;
-    }
-
-    public void setDiscount(BigDecimal discount) {
-        this.discount = discount;
-    }
-
-    public DiscountUnit getDiscountUnit() {
-        return discountUnit;
-    }
-
-    public void setDiscountUnit(DiscountUnit discountUnit) {
-        this.discountUnit = discountUnit;
-    }
-
-    @Nullable
-    public List<User> getUsers() {
-        return users;
-    }
-
-    public void setUsers(@Nullable List<User> users) {
-        this.users = users;
-    }
-
-    @Nullable
-    public List<Restaurant> getRestaurants() {
-        return restaurants;
-    }
-
-    public void setRestaurants(@Nullable List<Restaurant> restaurants) {
-        this.restaurants = restaurants;
-    }
 }

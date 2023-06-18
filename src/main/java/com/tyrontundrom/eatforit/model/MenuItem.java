@@ -1,15 +1,19 @@
 package com.tyrontundrom.eatforit.model;
 
-import com.tyrontundrom.eatforit.model.Dish;
-import com.tyrontundrom.eatforit.model.Restaurant;
 import com.tyrontundrom.eatforit.model.enums.VatTax;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.UUID;
 
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table(name = "menuItem")
 public class MenuItem {
@@ -49,68 +53,4 @@ public class MenuItem {
     @NotNull
     @ManyToOne
     private Restaurant restaurant;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public BigDecimal getNetPrice() {
-        return netPrice;
-    }
-
-    public void setNetPrice(BigDecimal netPrice) {
-        this.netPrice = netPrice;
-    }
-
-    public VatTax getVatTax() {
-        return vatTax;
-    }
-
-    public void setVatTax(VatTax vatTax) {
-        this.vatTax = vatTax;
-    }
-
-    public BigDecimal getGrossPrice() {
-        return grossPrice;
-    }
-
-    public void setGrossPrice(BigDecimal grossPrice) {
-        this.grossPrice = grossPrice;
-    }
-
-    public List<Dish> getDishes() {
-        return dishes;
-    }
-
-    public void setDishes(List<Dish> dishes) {
-        this.dishes = dishes;
-    }
-
-    public Restaurant getRestaurants() {
-        return restaurant;
-    }
-
-    public void setRestaurants(Restaurant restaurant) {
-        this.restaurant = restaurant;
-    }
 }

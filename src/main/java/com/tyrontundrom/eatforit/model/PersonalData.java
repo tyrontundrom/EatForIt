@@ -4,9 +4,15 @@ import com.tyrontundrom.eatforit.model.enums.Sex;
 import jakarta.persistence.Embeddable;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
+import lombok.*;
 
 import javax.annotation.Nullable;
 
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Embeddable
 class PersonalData {
 

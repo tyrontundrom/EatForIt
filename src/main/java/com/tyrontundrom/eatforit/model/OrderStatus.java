@@ -2,9 +2,15 @@ package com.tyrontundrom.eatforit.model;
 
 import jakarta.persistence.Embeddable;
 import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 import java.time.Instant;
 
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Embeddable
 class OrderStatus {
 
@@ -19,36 +25,4 @@ class OrderStatus {
 
     @NotNull
     private Instant deliveryTime;
-
-    public Instant getOrderTime() {
-        return orderTime;
-    }
-
-    public void setOrderTime(Instant orderTime) {
-        this.orderTime = orderTime;
-    }
-
-    public Boolean getPaid() {
-        return isPaid;
-    }
-
-    public void setPaid(Boolean paid) {
-        isPaid = paid;
-    }
-
-    public Instant getGiveOutTime() {
-        return giveOutTime;
-    }
-
-    public void setGiveOutTime(Instant giveOutTime) {
-        this.giveOutTime = giveOutTime;
-    }
-
-    public Instant getDeliveryTime() {
-        return deliveryTime;
-    }
-
-    public void setDeliveryTime(Instant deliveryTime) {
-        this.deliveryTime = deliveryTime;
-    }
 }

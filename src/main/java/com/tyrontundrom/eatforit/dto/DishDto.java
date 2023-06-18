@@ -2,11 +2,17 @@ package com.tyrontundrom.eatforit.dto;
 
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 public class DishDto {
 
     @NotNull
@@ -22,36 +28,4 @@ public class DishDto {
     @Nullable
     private List<MenuItemDto> menuItemDtos;
 
-    public UUID getUuid() {
-        return uuid;
     }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public ProductDto getProductDto() {
-        return productDto;
-    }
-
-    public void setProductDto(ProductDto productDto) {
-        this.productDto = productDto;
-    }
-
-    @Nullable
-    public List<MenuItemDto> getMenuItemDtos() {
-        return menuItemDtos;
-    }
-
-    public void setMenuItemDtos(@Nullable List<MenuItemDto> menuItemDtos) {
-        this.menuItemDtos = menuItemDtos;
-    }
-}

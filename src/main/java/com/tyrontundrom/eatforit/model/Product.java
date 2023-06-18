@@ -3,11 +3,17 @@ package com.tyrontundrom.eatforit.model;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 class Product {
 
@@ -29,45 +35,4 @@ class Product {
     @Nullable
     @OneToOne
     private Dish dish;
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public List<Ingredient> getIngredients() {
-        return ingredients;
-    }
-
-    public void setIngredients(List<Ingredient> ingredients) {
-        this.ingredients = ingredients;
-    }
-
-    @Nullable
-    public Dish getDish() {
-        return dish;
-    }
-
-    public void setDish(@Nullable Dish dish) {
-        this.dish = dish;
-    }
 }

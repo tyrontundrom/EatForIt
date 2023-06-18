@@ -1,12 +1,17 @@
 package com.tyrontundrom.eatforit.dto;
 
 import com.tyrontundrom.eatforit.model.MenuItem;
-import jakarta.persistence.*;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 import java.util.UUID;
 
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 class OrderItemDto {
 
     @NotNull
@@ -18,28 +23,4 @@ class OrderItemDto {
 
     @NotNull
     private MenuItem menuItem;
-
-    public UUID getUuid() {
-        return uuid;
-    }
-
-    public void setUuid(UUID uuid) {
-        this.uuid = uuid;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
-
-    public MenuItem getMenuItem() {
-        return menuItem;
-    }
-
-    public void setMenuItem(MenuItem menuItem) {
-        this.menuItem = menuItem;
-    }
 }

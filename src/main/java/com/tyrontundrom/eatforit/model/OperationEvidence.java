@@ -5,10 +5,16 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.Digits;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.Instant;
 
+@Builder
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 class OperationEvidence {
 
@@ -33,43 +39,4 @@ class OperationEvidence {
     @ManyToOne
     private User user;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Instant getDate() {
-        return date;
-    }
-
-    public void setDate(Instant date) {
-        this.date = date;
-    }
-
-    public EvidenceType getEvidenceType() {
-        return evidenceType;
-    }
-
-    public void setEvidenceType(EvidenceType evidenceType) {
-        this.evidenceType = evidenceType;
-    }
-
-    public BigDecimal getAmount() {
-        return amount;
-    }
-
-    public void setAmount(BigDecimal amount) {
-        this.amount = amount;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 }
