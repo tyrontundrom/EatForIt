@@ -4,7 +4,6 @@ import com.google.common.collect.ImmutableMap;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import org.hibernate.cfg.AvailableSettings;
-import org.hibernate.validator.internal.util.stereotypes.Immutable;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -48,7 +47,9 @@ public class JPAConfiguration {
         LocalContainerEntityManagerFactoryBean entityManagerFactory = new LocalContainerEntityManagerFactoryBean();
         entityManagerFactory.setDataSource(dataSource);
         entityManagerFactory.setJpaVendorAdapter(jpaVendorAdapter);
-        entityManagerFactory.setPackagesToScan("com.tyrontundrom.eatforit.model");
+        entityManagerFactory.setPackagesToScan(
+                "com.tyrontundrom.eatforit.model",
+                "com.tyrontundrom.eatforit.converter");
         entityManagerFactory.setJpaPropertyMap(ImmutableMap.of(
                 AvailableSettings.DIALECT, "org.hibernate.dialect.MySQL8Dialect",
                 AvailableSettings.SHOW_SQL, "true",

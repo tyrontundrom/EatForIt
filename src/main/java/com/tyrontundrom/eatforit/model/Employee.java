@@ -15,7 +15,7 @@ import java.util.UUID;
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorValue("employee")
-class Employee {
+public class Employee {
 
     @Id
     @GeneratedValue

@@ -5,7 +5,6 @@ import lombok.*;
 import javax.annotation.Nullable;
 import java.util.List;
 
-@Builder
 @Getter
 @Setter
 @AllArgsConstructor

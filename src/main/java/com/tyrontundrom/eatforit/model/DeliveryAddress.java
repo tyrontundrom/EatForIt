@@ -13,7 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-class DeliveryAddress {
+public class DeliveryAddress {
 
     @Id
     @GeneratedValue

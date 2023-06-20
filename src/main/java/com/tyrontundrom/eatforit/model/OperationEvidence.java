@@ -16,7 +16,7 @@ import java.time.Instant;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-class OperationEvidence {
+public class OperationEvidence {
 
     @Id
     @GeneratedValue

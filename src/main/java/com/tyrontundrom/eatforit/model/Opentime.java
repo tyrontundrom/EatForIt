@@ -13,7 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-class Opentime {
+public class Opentime {
 
     @Id
     @GeneratedValue

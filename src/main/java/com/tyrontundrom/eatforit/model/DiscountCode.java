@@ -19,7 +19,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-class DiscountCode {
+public class DiscountCode {
 
     @Id
     @GeneratedValue

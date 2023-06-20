@@ -15,7 +15,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-class User {
+public class User {
 
     @Id
     @GeneratedValue

@@ -13,7 +13,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-class OrderItem {
+public class OrderItem {
 
     @Id
     @GeneratedValue

@@ -18,7 +18,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-class Order {
+public class Order {
 
     @Id
     @GeneratedValue
