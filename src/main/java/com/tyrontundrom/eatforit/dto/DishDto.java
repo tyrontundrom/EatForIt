@@ -1,5 +1,6 @@
 package com.tyrontundrom.eatforit.dto;
 
+import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -15,16 +16,25 @@ import java.util.UUID;
 @NoArgsConstructor
 public class DishDto {
 
+    public static class View {
+        public interface Basic {}
+        public interface Extended extends Basic {}
+    }
+
+    @JsonView(View.Basic.class)
     @NotNull
     private UUID uuid;
 
+    @JsonView(View.Extended.class)
     @NotNull
     @Min(0)
     private Integer quantity;
 
+    @JsonView(View.Extended.class)
     @NotNull
     private ProductDto productDto;
 
+    @JsonView(View.Extended.class)
     @Nullable
     private List<MenuItemDto> menuItemDtos;
 

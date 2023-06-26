@@ -1,5 +1,7 @@
 package com.tyrontundrom.eatforit.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonView;
 import com.tyrontundrom.eatforit.model.*;
 import com.tyrontundrom.eatforit.model.enums.Archive;
 import jakarta.persistence.*;
@@ -18,33 +20,48 @@ import java.util.UUID;
 @NoArgsConstructor
 public class RestaurantDto {
 
+    public static class View {
+        public interface Id {}
+        public interface Basic extends Id {}
+        public interface Extended extends Basic {}
+    }
+
+    @JsonView(View.Id.class)
     @NotNull
     private UUID uuid;
 
+    @JsonView(View.Basic.class)
     @NotBlank
     private String name;
 
+    @JsonView(View.Basic.class)
     @NotNull
     @Embedded
     private LogginDataDto logginDataDto;
 
+    @JsonView(View.Extended.class)
     @NotNull
     @Embedded
     private CompanyDataDto companyDataDto;
 
+    @JsonView(View.Extended.class)
     @NotNull
     @Size(max = 7)
     private List<OpenTimeDto> openTimeDtos;
 
+    @JsonView(View.Extended.class)
     @NotNull
     private List<OrderDto> orderDtos;
 
+    @JsonView(View.Extended.class)
     @NotNull
     private List<MenuItem> menuItems;
 
+    @JsonIgnore
     @NotNull
     private List<DiscountCodeDto> discountCodeDtos;
 
+    @JsonView(View.Extended.class)
     @NotNull
     @Enumerated(EnumType.STRING)
     private Archive archive;
