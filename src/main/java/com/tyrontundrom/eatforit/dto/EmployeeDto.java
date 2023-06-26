@@ -14,7 +14,7 @@ import java.util.UUID;
 @NoArgsConstructor
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
 @DiscriminatorValue("employee")
-class EmployeeDto {
+public class EmployeeDto {
 
     @NotNull
     private UUID uuid;

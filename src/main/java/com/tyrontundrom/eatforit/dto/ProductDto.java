@@ -13,7 +13,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-class ProductDto {
+public class ProductDto {
 
     @NotNull
     private UUID uuid;

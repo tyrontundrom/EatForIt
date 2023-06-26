@@ -9,7 +9,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-class DelivererDto extends EmployeeDto {
+public class DelivererDto extends EmployeeDto {
 
     @Nullable
     private List<OrderDto> orders;

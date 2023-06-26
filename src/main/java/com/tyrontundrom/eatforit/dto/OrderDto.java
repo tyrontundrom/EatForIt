@@ -18,7 +18,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-class OrderDto {
+public class OrderDto {
 
     @NotNull
     private UUID uuid;

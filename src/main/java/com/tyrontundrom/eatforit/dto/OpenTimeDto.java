@@ -12,7 +12,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-class OpenTimeDto {
+public class OpenTimeDto {
 
     @NotNull
     private UUID uuid;

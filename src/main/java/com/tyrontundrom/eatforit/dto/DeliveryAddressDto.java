@@ -11,7 +11,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-class DeliveryAddressDto {
+public class DeliveryAddressDto {
 
     @NotNull
     private UUID uuid;

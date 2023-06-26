@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-class AddressDto {
+public class AddressDto {
 
     @NotNull
     private String street;

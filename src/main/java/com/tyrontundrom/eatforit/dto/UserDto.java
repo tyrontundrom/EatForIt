@@ -16,7 +16,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-class UserDto {
+public class UserDto {
     @NotNull
     private UUID uuid;
 

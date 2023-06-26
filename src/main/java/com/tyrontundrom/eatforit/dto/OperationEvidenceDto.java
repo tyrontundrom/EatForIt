@@ -15,7 +15,7 @@ import java.time.Instant;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-class OperationEvidenceDto {
+public class OperationEvidenceDto {
 
     @NotNull
     private Instant date;

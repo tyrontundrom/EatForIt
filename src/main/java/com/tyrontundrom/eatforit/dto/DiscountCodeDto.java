@@ -19,7 +19,7 @@ import java.util.UUID;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-class DiscountCodeDto {
+public class DiscountCodeDto {
 
     @NotNull
     private UUID uuid;

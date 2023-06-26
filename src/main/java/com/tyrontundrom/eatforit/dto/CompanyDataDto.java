@@ -11,7 +11,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-class CompanyDataDto {
+public class CompanyDataDto {
 
     @NotNull
     private String name;

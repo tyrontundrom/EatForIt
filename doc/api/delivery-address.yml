@@ -1,18 +1,18 @@
 openapi: 3.0.1
 info:
-  title: API / Dishes
+  title: API / Delivery address
   version: 1.0.0-oas3
 servers:
   - url: http://localhost/api
 tags:
-  - name: dishes
+  - name: delivery address
     description: ''
 paths:
   /delivery-addresses:
     get:
       tags:
-        - dishes
-      summary: Pobiera listę dań
+        - delivery addresses
+      summary: Pobiera listę adresów dostawy
       responses:
         '200':
           description: OK
@@ -21,16 +21,16 @@ paths:
               schema:
                 type: array
                 items:
-                  $ref: '#/components/schemas/Dish'
-  /delivery-addresses/{dish-uuid}:
+                  $ref: '#/components/schemas/DeliveryAddresses'
+  /delivery-addresses/{delivery-address-uuid}:
     get:
       tags:
-        - dishes
-      summary: Pobiera danie
+        - delivery addresses
+      summary: Pobiera adres dostawy
       parameters:
-        - name: dish-uuid
+        - name: delivery-address-uuid
           in: path
-          description: UUID pobieranego dania
+          description: UUID pobieranego adresu dostawy
           required: true
           schema:
             type: string
@@ -41,46 +41,46 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Dish'
+                $ref: '#/components/schemas/DeliveryAddresses'
         '404':
           description: Not found
           content: { }
     put:
       tags:
-        - dishes
-      summary: Dodawanie lub nadpisywanie dania
+        - delivery addresses
+      summary: Dodawanie lub nadpisywanie adresu dostawy
       parameters:
-        - name: dish-uuid
+        - name: delivery-address-uuid
           in: path
-          description: UUID pobieranego dania
+          description: UUID pobieranego adresu dostawy
           required: true
           schema:
             type: string
             format: UUID
       requestBody:
-        description: Uaktualnienie lub wstawienie dania
+        description: Uaktualnienie lub wstawienie adresu dostawy
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/Dish'
+              $ref: '#/components/schemas/DeliveryAddresses'
       responses:
         '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Dish'
+                $ref: '#/components/schemas/DeliveryAddresses'
         '400':
           description: Validation error
           content: { }
     delete:
       tags:
-        - dishes
-      summary: Usuwa dane
+        - delivery addresses
+      summary: Usuwa adres dostawy
       parameters:
-        - name: dish-uuid
+        - name: delivery-address-uuid
           in: path
-          description: UUID pobieranego dania
+          description: UUID pobieranego adresu dostawy
           required: true
           schema:
             type: string
@@ -91,35 +91,39 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Dish'
+                $ref: '#/components/schemas/DeliveryAddresses'
         '404':
           description: Not found
           content: { }
 components:
   schemas:
-    Dish:
+    DeliveryAddresses:
       type: object
       properties:
         uuid:
           type: string
           format: UUID
-        quantity:
-          type: integer
-          minimum: 0
-        product:
-          $ref: '#/components/schemas/Product'
-        menuItems:
-          type: array
-          items:
-            $ref: '#/components/schemas/MenuItem'
-          readOnly: true
-    Product:
-      type: object
-      properties:
-        uuid:
+        description:
           type: string
-          format: UUID
-    MenuItem:
+        street:
+          type: string
+        streetNumber:
+          type: string
+        localNumber:
+          type: string
+        postalCode:
+          type: string
+        city:
+          type: string
+        borough:
+          type: string
+        country:
+          type: string
+        state:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
+    User:
       type: object
       properties:
         uuid:
