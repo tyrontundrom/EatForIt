@@ -3,6 +3,7 @@ package com.tyrontundrom.eatforit.dto;
 import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Null;
 import lombok.*;
 
 import javax.annotation.Nullable;
@@ -17,11 +18,15 @@ import java.util.UUID;
 public class DishDto {
 
     public static class View {
-        public interface Basic {}
+        public interface Id {}
+        public interface Basic extends Id {}
+
         public interface Extended extends Basic {}
     }
 
-    @JsonView(View.Basic.class)
+    public interface DataUpdateValidation {}
+
+    @JsonView(View.Id.class)
     @NotNull
     private UUID uuid;
 
@@ -36,6 +41,7 @@ public class DishDto {
 
     @JsonView(View.Extended.class)
     @Nullable
+    @Null(groups = DataUpdateValidation.class)
     private List<MenuItemDto> menuItemDtos;
 
     }

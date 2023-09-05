@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-class PersonalData {
+public class PersonalData {
 
     @Nullable
     private String name;

@@ -1,7 +1,6 @@
 package com.tyrontundrom.eatforit.dto;
 
 import com.fasterxml.jackson.annotation.JsonView;
-import com.tyrontundrom.eatforit.model.MenuItem;
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
@@ -31,5 +30,5 @@ public class OrderItemDto {
 
     @JsonView(View.Extended.class)
     @NotNull
-    private MenuItem menuItem;
+    private MenuItemDto menuItemDto;
 }

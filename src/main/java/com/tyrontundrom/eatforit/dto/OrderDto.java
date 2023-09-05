@@ -3,10 +3,7 @@ package com.tyrontundrom.eatforit.dto;
 import com.fasterxml.jackson.annotation.JsonView;
 import jakarta.persistence.Embedded;
 import jakarta.persistence.Lob;
-import jakarta.validation.constraints.Digits;
-import jakarta.validation.constraints.Min;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.*;
 
 import javax.annotation.Nullable;
@@ -26,6 +23,10 @@ public class OrderDto {
         public interface Extended extends Basic {}
     }
 
+    public interface OrderValidation {}
+
+    public interface OrderStatusValidation {}
+
     @JsonView(View.Basic.class)
     @NotNull
     private UUID uuid;
@@ -33,6 +34,7 @@ public class OrderDto {
     @JsonView(View.Extended.class)
     @Digits(integer = 10, fraction = 2)
     @Min(0)
+    @Null(groups = OrderValidation.class)
     @NotNull
     private BigDecimal netPrice;
 
@@ -53,12 +55,17 @@ public class OrderDto {
     private BigDecimal amountToPayGross;
 
     @JsonView(View.Extended.class)
+    @NotNull
+    private DeliveryAddressDto deliveryAddressDto;
+
+    @JsonView(View.Extended.class)
     @Nullable
     @Lob
     private String description;
 
     @JsonView(View.Basic.class)
-    @NotNull
+    @Null(groups = OrderValidation.class)
+    @NotNull(groups = OrderStatusValidation.class)
     @Embedded
     private OrderStatusDto orderStatusDto;
 

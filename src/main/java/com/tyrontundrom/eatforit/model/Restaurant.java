@@ -40,7 +40,7 @@ public class Restaurant {
     @NotNull
     @Size(max = 7)
     @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Opentime> opentimes;
+    private List<OpenTime> opentimes;
 
     @NotNull
     @OneToMany(mappedBy = "restaurant")

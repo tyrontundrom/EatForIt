@@ -2,14 +2,15 @@ package com.tyrontundrom.eatforit.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonView;
-import com.tyrontundrom.eatforit.model.*;
 import com.tyrontundrom.eatforit.model.enums.Archive;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
+import javax.annotation.Nullable;
 import java.util.List;
 import java.util.UUID;
 
@@ -25,6 +26,8 @@ public class RestaurantDto {
         public interface Basic extends Id {}
         public interface Extended extends Basic {}
     }
+
+    public interface DataUpdateValidation {}
 
     @JsonView(View.Id.class)
     @NotNull
@@ -50,12 +53,14 @@ public class RestaurantDto {
     private List<OpenTimeDto> openTimeDtos;
 
     @JsonView(View.Extended.class)
-    @NotNull
+    @Nullable
+    @Null(groups = DataUpdateValidation.class)
     private List<OrderDto> orderDtos;
 
     @JsonView(View.Extended.class)
-    @NotNull
-    private List<MenuItem> menuItems;
+    @Nullable
+    @Null(groups = DataUpdateValidation.class)
+    private List<MenuItemDto> menuItemDtos;
 
     @JsonIgnore
     @NotNull

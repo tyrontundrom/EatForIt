@@ -34,6 +34,8 @@ public class DeliveryAddress {
     private String localNumber;
     @NotNull
     private String city;
+    @NotNull
+    private String postalCode;
     @Nullable
     private String borough;
     @Nullable

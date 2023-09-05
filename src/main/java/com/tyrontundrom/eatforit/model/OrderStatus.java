@@ -12,7 +12,7 @@ import java.time.Instant;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-class OrderStatus {
+public class OrderStatus {
 
     @NotNull
     private Instant orderTime;

@@ -7,6 +7,8 @@ import jakarta.persistence.Embedded;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Null;
+import jakarta.validation.constraints.Size;
 import lombok.*;
 
 import javax.annotation.Nullable;
@@ -25,6 +27,9 @@ public class UserDto {
         public interface Basic extends Id {}
         public interface Extended extends Basic {}
     }
+
+    public interface DataUpdateValidation {}
+    public interface NewOperationValidation {}
 
     @JsonView(View.Id.class)
     @NotNull
@@ -46,10 +51,13 @@ public class UserDto {
 
     @JsonIgnore
     @Nullable
+    @Null(groups = DataUpdateValidation.class)
     private List<OrderDto> orderDtos;
 
     @JsonView(View.Extended.class)
     @NotNull
+    @Size(max = 0, groups = DataUpdateValidation.class)
+    @Size(min = 1, max = 1, groups = NewOperationValidation.class)
     private List<OperationEvidenceDto> operationEvidenceDtos;
 
     @JsonView(View.Extended.class)

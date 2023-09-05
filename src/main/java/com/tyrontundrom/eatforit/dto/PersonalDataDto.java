@@ -16,7 +16,7 @@ import javax.annotation.Nullable;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-class PersonalDataDto {
+public class PersonalDataDto {
 
     public static class View {
         public interface Basic {}

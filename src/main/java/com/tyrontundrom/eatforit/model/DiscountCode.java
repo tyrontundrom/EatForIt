@@ -42,6 +42,10 @@ public class DiscountCode {
     @Enumerated(EnumType.STRING)
     private DiscountUnit discountUnit;
 
+    @NotNull
+    @Embedded
+    private Period period;
+
     @Nullable
     @ManyToMany
     private List<User> users;

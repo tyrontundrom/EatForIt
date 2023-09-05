@@ -5,10 +5,11 @@ import com.tyrontundrom.eatforit.model.enums.Archive;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import java.util.UUID;
 
-@Builder
+@SuperBuilder
 @Getter
 @Setter
 @AllArgsConstructor
@@ -20,7 +21,6 @@ public class EmployeeDto {
     public static class View {
         public interface Id {}
         public interface Basic extends Id {}
-
         public interface Extended extends Basic {}
     }
 

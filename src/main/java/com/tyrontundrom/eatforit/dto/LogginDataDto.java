@@ -13,7 +13,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-class LogginDataDto {
+public class LogginDataDto {
 
     public static class View {
         public interface Basic {}

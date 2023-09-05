@@ -59,6 +59,10 @@ public class Order {
     private OrderStatus orderStatus;
 
     @NotNull
+    @OneToOne
+    private DeliveryAddress deliveryAddress;
+
+    @NotNull
     @Size(min = 1)
     @OneToMany
     private List<OrderItem> orderItem;

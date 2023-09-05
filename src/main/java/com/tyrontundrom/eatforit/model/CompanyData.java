@@ -12,7 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-class CompanyData {
+public class CompanyData {
 
     @NotNull
     @Column(name = "companyName")

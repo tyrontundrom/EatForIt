@@ -12,7 +12,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Embeddable
-class LogginData {
+public class LogginData {
 
     @Column(unique = true)
     @Size(min = 3)
